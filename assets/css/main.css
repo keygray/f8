@@ -12,6 +12,7 @@ header {
   list-style: none;
   padding-left: 0;
   margin: 4px 0 0 0;
+  /* display: flex */
 }
 
 .header__navbar-item {
@@ -34,6 +35,9 @@ header {
 .header__navbar-item,
 .header__navbar-item-link,
 .header__navbar-icon-link {
+  /* Với thuộc tính inline-flex ở dưới thì ta cũng có thể css là flex thì vẫn ra kết quả như vậy vì thẻ cha header__navbar-list
+  đã nhận thuộc tính flex nên thẻ con kế thừa còn nếu ko có thẻ cha với thuộc tính flex thì phải làm là inline flex*/
+  /* display: flex */
   display: inline-flex;
   align-items: center;
 }
@@ -74,6 +78,88 @@ header {
 .header__navbar-title--no-pointer {
   cursor: text;
   color: var(--white-color);
+}
+
+/* Header User Logined */
+.header__navbar-user {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.header__navbar-user-img {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.header__navbar-user-name {
+  margin-left: 8px;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.header__navbar-user-menu {
+  position: absolute;
+  z-index: 1;
+  top: calc(100% + 4px);
+  right: 0;
+  padding-left: 0;
+  width: 160px;
+  background-color: var(--white-color);
+  border-radius: 2px;
+  list-style: none;
+  box-shadow: 0 1px 2px #e0e0e0;
+  display: none;
+}
+
+.header__navbar-user-menu::before {
+  content: "";
+  position: absolute;
+  top: -29px;
+  right: 4px;
+  border-width: 20px 27px;
+  border-style: solid;
+  border-color: transparent transparent var(--white-color) transparent;
+}
+
+.header__navbar-user-menu::after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: 0;
+  width: 56%;
+  height: 8px;
+  display: block;
+}
+
+.header__navbar-user-item {}
+
+.header__navbar-user-item a:first-child {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+.header__navbar-user-item a:last-child {
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.header__navbar-user-item a {
+  text-decoration: none;
+  font-size: 1.4rem;
+  color: var(--text-color);
+  padding: 4px 16px;
+  display: block;
+}
+
+.header__navbar-user-item a:hover {
+  background-color: #fafafa;
+}
+
+.header__navbar-user:hover .header__navbar-user-menu {
+  display: block;
 }
 
 /* QR CODE */
@@ -127,6 +213,8 @@ header {
 /* Header notify */
 .header__notify {
   position: absolute;
+  /* thuộc tính z-index là để đếm thứ tự các layer cái nào nằm trên cái nào nằm dưới tránh bị trùng chéo lên nhau , dưới đây là tự thêm */
+  z-index: 1;
   top: 118%;
   right: 0;
   width: 404px;
