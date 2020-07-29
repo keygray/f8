@@ -27,7 +27,7 @@ header {
   text-decoration: none;
   display: inline-block;
   color: var(--white-color);
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 300;
 }
 
@@ -70,6 +70,10 @@ header {
   text-decoration: none;
 }
 
+.header__navbar-icon-link:nth-child(2) {
+  margin-left: 3px;
+}
+
 .header__navbar-icon {
   font-size: 1.8rem;
   margin: 0 4px;
@@ -77,6 +81,7 @@ header {
 
 .header__navbar-title--no-pointer {
   cursor: text;
+
   color: var(--white-color);
 }
 
@@ -95,7 +100,7 @@ header {
 }
 
 .header__navbar-user-name {
-  margin-left: 8px;
+  margin-left: 4px;
   font-size: 1.4rem;
   font-weight: 400;
 }
@@ -135,6 +140,17 @@ header {
 }
 
 .header__navbar-user-item {}
+
+/* Phân chia dòng đăng xuất 
+Cách 1 : Thêm class vô cái đăng xuất
+cách 2: (tự nghĩ) sử dụng last-child */
+.header__navbar-user-item--separate {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* .header__navbar-user-item:last-child {
+  border-top: 1px solid rgba(0, 0, 0, 0.05)
+} */
 
 .header__navbar-user-item a:first-child {
   border-top-left-radius: 2px;
@@ -218,13 +234,14 @@ header {
   top: 118%;
   right: 0;
   width: 404px;
-  border: 1px solid #d3d3d3;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: var(--white-color);
   cursor: default;
-  transform-origin: calc(100% - 20px) top;
+  transform-origin: calc(100% - 40px) top;
   animation: headerNotifyGrowth ease-in 0.25s;
   display: none;
   will-change: opacity, transform;
+  border-radius: 2px;
 }
 
 .header__notify::before {
@@ -481,6 +498,12 @@ header {
 
 .header__logo {
   width: 200px;
+}
+
+/* css của class dưới không cần thiết nếu là trình duyệt mới ,nhưng phòng TH nếu là trình duyệt cũ thì ta cần thêm như dưới */
+.header__logo-link {
+  text-decoration: none;
+  color: transparent;
 }
 
 .header__logo-img {
@@ -745,7 +768,7 @@ header {
 .header__search-option {
   position: absolute;
   right: 0;
-  top: 100%;
+  top: calc(100% - 1px);
   width: 130px;
   list-style: none;
   box-shadow: 0 1px 2px #e0e0e0;
