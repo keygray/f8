@@ -1028,3 +1028,67 @@ cách 2: (tự nghĩ) sử dụng last-child */
   font-size: 1.4rem;
   color: #555;
 }
+
+/* product item */
+.home-product-item {
+  background-color: var(--white-color);
+  margin-top: 10px;
+}
+
+.home-product-item__img {
+  padding-top: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+/* CHÚ Ý cách làm dấu ... */
+.home-product-item__name {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--text-color);
+  margin: 10px 10px;
+  /* set height ở đây để xử lý việc chữ dài quá 2 dòng sẽ cắt bớt đi  */
+  /* vì ta đặt line-height là 1.8 rem nên muốn hiển thị 2 dòng thì tức là height sẽ là 1.8 x 2 = 3.6 */
+  line-height: 1.8rem;
+  height: 3.6rem;
+  /* Vì trình duyệt vẫn sẽ hiển thị thẻ con chòi ra tức là dòng 3 vẫn đc hiển thì chòi ra nên ta dùng overflow để dấu đi */
+  overflow: hidden;
+  /* hiển thị dấu ... nếu không chạy được webkit thì nó sẽ chạy display:block*/
+  display: block;
+  display: -webkit-box;
+  /* muốn hiển thị box theo chiều nào */
+  -webkit-box-orient: vertical;
+  /* Giới hạn mức số dòng là bao nhiêu*/
+  -webkit-line-clamp: 2;
+  /* end webkit */
+  /* code cho trình duyệt cũ để dùng display:block nhưng chỉ đúng khi nó giới hạn 1 dòng */
+  /* text-overflow: ellipsis;
+  white-space: nowrap; -> không cho phép vượt giới hạn box vượt là gói lại */
+}
+
+.home-product-item__price {}
+
+.home-product-item__price-old {}
+
+.home-product-item__price-current {}
+
+.home-product-item__action {}
+
+.home-product-item__like {}
+
+.home-product-item__rating {}
+
+.home-product-item__origin {}
+
+.home-product-item__branch {}
+
+.home-product-item__origin-name {}
+
+.home-product-item__favourite {}
+
+.home-product-item__sale-off {}
+
+.home-product-item__sale-off-percent {}
+
+.home-product-item__sale-off-label {}
