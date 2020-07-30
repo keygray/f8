@@ -118,6 +118,7 @@ html {
     align-items: center;
     line-height: 1.6rem;
     /* dòng line height k cần lắm */
+    background-color: var(--white-color);
 }
 
 .btn.btn--normal:hover {
@@ -140,4 +141,60 @@ html {
     height: 30px;
     font-size: 1.2rem;
     padding: 0 8px;
+}
+
+/* Select bang chon gia tri */
+.select-input {
+    min-width: 200px;
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.select-input__label {
+    font-size: 1.4rem;
+}
+
+.select-input__icon {
+    font-size: 1.4rem;
+    color: rgb(131, 131, 131);
+    position: relative;
+    top: 1px;
+}
+
+/* List option*/
+.select-input__list {
+    position: absolute;
+    /* left = 0 và right = 0 thì tự bằng chiều ngang thằng chứa nó */
+    left: 0;
+    right: 0;
+    top: 25px;
+    /* top trong TH này có thể fix cứng vì ít thay đổi */
+    border-radius: 2px;
+    background-color: var(--white-color);
+    padding: 8px 16px;
+    list-style: none;
+    display: none;
+}
+
+.select-input__link {
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    display: block;
+    padding: 4px 0;
+    /* cho trên dưới bằng nửa của thẻ cha thẻ trên thì nhìn sẽ cân nhau */
+}
+
+.select-input__link:hover {
+    color: var(--primary-color-rgb);
+}
+
+.select-input:hover .select-input__list {
+    display: block;
 }
