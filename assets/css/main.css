@@ -1003,6 +1003,7 @@ cách 2: (tự nghĩ) sử dụng last-child */
 }
 
 .home-filter__page-btn {
+  /* sẽ chia đôi thẻ cha của nó vì có 2 class nên sẽ là 72/2 còn nếu có 1 thì thẻ này sẽ chiếm hết phần đó */
   flex: 1;
   background-color: var(--white-color);
   display: flex;
