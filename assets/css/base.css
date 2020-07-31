@@ -207,3 +207,41 @@ html {
 .select-input:hover .select-input__list {
     display: block;
 }
+
+/* pagination chuyển trang */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+.pagination-item {
+    margin: 0 12px;
+}
+
+.pagination-item__link {
+    /* đặt biến tiện việc sửa sau này */
+    --height: 30px;
+    text-decoration: none;
+    color: #939393;
+    font-size: 2rem;
+    font-weight: 300;
+    display: block;
+    min-width: 40px;
+    height: var(--height);
+    text-align: center;
+    line-height: var(--height);
+    border-radius: 2px;
+}
+
+.pagination-item--active .pagination-item__link {
+    background-color: var(--primary-color-rgb);
+    color: var(--white-color);
+}
+
+.pagination-item--active .pagination-item__link:hover {
+    background-color: #ed5c3f;
+}
+
+.pagination-item__icon {}
