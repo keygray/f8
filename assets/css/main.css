@@ -1035,6 +1035,7 @@ cách 2: (tự nghĩ) sử dụng last-child */
 .home-product-item {
   background-color: var(--white-color);
   margin-top: 10px;
+  position: relative;
 }
 
 .home-product-item__img {
@@ -1152,9 +1153,50 @@ i.home-product-item__like-icon-fill {
   /* margin-right:auto; */
 }
 
-.home-product-item__favourite {}
+.home-product-item__favourite {
+  position: absolute;
+  top: 10px;
+  left: -4px;
+  color: var(--primary-color-rgb);
+  /* thuộc tính currentcolor sẽ lấy màu từ chính thẻ color */
+  background-color: currentColor;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+  padding-right: 4px;
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+}
 
-.home-product-item__sale-off {}
+.home-product-item__favourite span {
+  color: var(--white-color);
+}
+
+.home-product-item__favourite i {
+  color: var(--white-color);
+  font-size: 0.9rem;
+  margin: 0 2px 0 4px;
+}
+
+/* làm mũi tên wrap vào cũng có thể làm như mọi khi nhưng thêm thuộc tính transform:rotate(45%) vào để quay góc hoặc làm như dưới */
+.home-product-item__favourite::before {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  /* trong TH này cái vạt này là con của favourite nên nó vẫn ản theo currentcolor của cha nó */
+  border-top: 3px solid currentColor;
+  border-left: 3px solid transparent;
+  /* thay đổi độ sáng */
+  filter: brightness(60%);
+}
+
+/* NOTE : Việc làm currentColor giúp đồng nhất màu của thẻ favourite với vạt của nó mai này sẽ thuận tiện cho việc sửa */
+
+/* nhãn sale */
+.home-product-item__sale-off {
+  position: absolute;
+}
 
 .home-product-item__sale-off-percent {}
 
