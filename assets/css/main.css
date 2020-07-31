@@ -828,7 +828,7 @@ cách 2: (tự nghĩ) sử dụng last-child */
 }
 
 /* focus vào ô input thì hiện ra lịch sử history */
-.header__search-input:focus ~ .header__search-history {
+.header__search-input:focus~.header__search-history {
   display: block;
 }
 
@@ -1100,41 +1100,62 @@ cách 2: (tự nghĩ) sử dụng last-child */
 .home-product-item__like {
   font-size: 1.3rem;
 }
+
 /* nếu không mất thì thêm thẻ đầu vào để vượt thuộc tính lên */
 /* làm trái tim đỏ */
 i.home-product-item__like-icon-fill {
   display: none;
   color: #f63d30;
 }
+
 .home-product-item__like--liked .home-product-item__like-icon-fill {
   display: inline-block;
 }
+
 .home-product-item__like--liked .home-product-item__like-icon-empty {
   display: none;
 }
+
 /* star */
 .home-product-item__rating {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: #d5d5d5;
+  margin-left: auto;
+}
+
+.home-product-item__rating--gold {
+  color: var(--star-gold-color);
+}
+
+/* đã bán */
+.home-product-item__sold {
+  color: var(--text-color);
+  font-size: 1.2rem;
+  margin-left: 6px;
 }
 
 .home-product-item__origin {
+  display: flex;
+  justify-content: space-between;
+  /* sử dụng justify ở đây hoặc dùng margin-(left hoặc right) vào lần lượt thẻ (branch hoặc orgin-name) */
+  margin: 3px 10px 0;
+  color: #595959;
+  font-weight: 300;
+  font-size: 1.2rem;
 }
 
 .home-product-item__branch {
+  /* margin-left:auto; */
 }
 
 .home-product-item__origin-name {
+  /* margin-right:auto; */
 }
 
-.home-product-item__favourite {
-}
+.home-product-item__favourite {}
 
-.home-product-item__sale-off {
-}
+.home-product-item__sale-off {}
 
-.home-product-item__sale-off-percent {
-}
+.home-product-item__sale-off-percent {}
 
-.home-product-item__sale-off-label {
-}
+.home-product-item__sale-off-label {}
