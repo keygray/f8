@@ -828,7 +828,7 @@ cách 2: (tự nghĩ) sử dụng last-child */
 }
 
 /* focus vào ô input thì hiện ra lịch sử history */
-.header__search-input:focus~.header__search-history {
+.header__search-input:focus ~ .header__search-history {
   display: block;
 }
 
@@ -844,6 +844,8 @@ cách 2: (tự nghĩ) sử dụng last-child */
   box-shadow: 0 1px 5px rgb(185, 185, 185);
   display: none;
   overflow: hidden;
+  /* tự sửa */
+  z-index: 1;
 }
 
 .header__search-history-heading {
@@ -1036,6 +1038,7 @@ cách 2: (tự nghĩ) sử dụng last-child */
 }
 
 .home-product-item__img {
+  /* sử dụng thẳng class chứ ko dùng thẻ img sẽ dễ chỉnh ảnh hơn, padding-top ở đây giúp kế thừa thẻ cha làm hình thằng vuông */
   padding-top: 100%;
   background-repeat: no-repeat;
   background-size: contain;
@@ -1047,7 +1050,7 @@ cách 2: (tự nghĩ) sử dụng last-child */
   font-size: 1.4rem;
   font-weight: 400;
   color: var(--text-color);
-  margin: 10px 10px;
+  margin: 10px 10px 6px;
   /* set height ở đây để xử lý việc chữ dài quá 2 dòng sẽ cắt bớt đi  */
   /* vì ta đặt line-height là 1.8 rem nên muốn hiển thị 2 dòng thì tức là height sẽ là 1.8 x 2 = 3.6 */
   line-height: 1.8rem;
@@ -1067,28 +1070,71 @@ cách 2: (tự nghĩ) sử dụng last-child */
   white-space: nowrap; -> không cho phép vượt giới hạn box vượt là gói lại */
 }
 
-.home-product-item__price {}
+.home-product-item__price {
+  display: flex;
+  /* Bằng nhau ở phần chân */
+  align-items: baseline;
+  flex-wrap: nowrap;
+}
 
-.home-product-item__price-old {}
+.home-product-item__price-old {
+  margin-left: 10px;
+  font-size: 1.4rem;
+  color: #666;
+  text-decoration: line-through;
+}
 
-.home-product-item__price-current {}
+.home-product-item__price-current {
+  margin-left: 10px;
+  font-size: 1.6rem;
+  color: var(--primary-color-rgb);
+  margin-left: 4px;
+}
 
-.home-product-item__action {}
+.home-product-item__action {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 10px 0;
+}
 
-.home-product-item__like {}
+.home-product-item__like {
+  font-size: 1.3rem;
+}
+/* nếu không mất thì thêm thẻ đầu vào để vượt thuộc tính lên */
+/* làm trái tim đỏ */
+i.home-product-item__like-icon-fill {
+  display: none;
+  color: #f63d30;
+}
+.home-product-item__like--liked .home-product-item__like-icon-fill {
+  display: inline-block;
+}
+.home-product-item__like--liked .home-product-item__like-icon-empty {
+  display: none;
+}
+/* star */
+.home-product-item__rating {
+  font-size: 0.7rem;
+  color: #d5d5d5;
+}
 
-.home-product-item__rating {}
+.home-product-item__origin {
+}
 
-.home-product-item__origin {}
+.home-product-item__branch {
+}
 
-.home-product-item__branch {}
+.home-product-item__origin-name {
+}
 
-.home-product-item__origin-name {}
+.home-product-item__favourite {
+}
 
-.home-product-item__favourite {}
+.home-product-item__sale-off {
+}
 
-.home-product-item__sale-off {}
+.home-product-item__sale-off-percent {
+}
 
-.home-product-item__sale-off-percent {}
-
-.home-product-item__sale-off-label {}
+.home-product-item__sale-off-label {
+}
