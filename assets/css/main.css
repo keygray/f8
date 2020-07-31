@@ -108,7 +108,7 @@ header {
 .header__navbar-user-menu {
   position: absolute;
   z-index: 1;
-  top: calc(100% + 4px);
+  top: calc(100% + 6px);
   right: 0;
   padding-left: 0;
   width: 160px;
@@ -189,6 +189,8 @@ cách 2: (tự nghĩ) sử dụng last-child */
   border-radius: 2px;
   animation: fadeIn ease-in 0.3s;
   display: none;
+  z-index: 1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .header__qr::before {
@@ -554,6 +556,7 @@ cách 2: (tự nghĩ) sử dụng last-child */
   display: none;
   animation: fadeIn ease-in 0.3s;
   cursor: default;
+  z-index: 2;
 }
 
 /* mũi tên trỏ lên */
@@ -618,6 +621,11 @@ cách 2: (tự nghĩ) sử dụng last-child */
 .header__cart-list-item {
   padding-left: 0;
   list-style: none;
+  /* set chiều cao ở đây để giới hạn khu vực hiển thị , ở đây sử dụng "vh" là đơn vị % theo màn hình bạn đang sử dụng*/
+  height: 56vh;
+  /* nếu mà sản phẩm vượt quá thì thay vì bth sử dụng overflow ẩn đi thì ta dùng auto nó sẽ thành scroll mà chỉ
+  chọn overflow-Y chiều y thì mới scroll */
+  overflow-y: auto;
 }
 
 .header__cart-item {
@@ -652,6 +660,20 @@ cách 2: (tự nghĩ) sử dụng last-child */
   font-weight: 500;
   color: var(--text-color);
   margin: 0;
+  padding-right: 16px;
+  text-align: left;
+  flex: 1;
+  /* flex 1 ở đây để cho căn phần còn lại dư thừa so với phần giá 200000x2 bên cạnh , để bên cạnh không ảnh hưởng   */
+  /* tạo quá 2 dòng thì ... */
+  line-height: 2rem;
+  /* để max-height ở đây vì số lượng dòng không cố định khu vực như tên sản phẩm mà lúc 1 lúc 2 
+  nên để max thì nó sẽ tự tăng cho phù hợp số dòng dài ngắn*/
+  max-height: 4rem;
+  overflow: hidden;
+  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .header__cart-item-price {
@@ -777,6 +799,7 @@ cách 2: (tự nghĩ) sử dụng last-child */
   /* overflow: hidden; dùng thuộc tính này có thể loại bỏ các thuộc tính con nhưng vì ảnh hưởng cầu trong TH nên bỏ để Border radius tùng cái item */
   display: none;
   animation: fadeIn ease-in 0.2s;
+  z-index: 1;
 }
 
 /* Lớp giả để làm cầu nối */
@@ -905,18 +928,13 @@ cách 2: (tự nghĩ) sử dụng last-child */
 }
 
 .category__heading {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   color: var(--text-color);
-  padding: 12px 16px;
+  padding: 16px 16px 10px 28.7px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   margin-top: 0;
-}
-
-.category__heading-icon {
-  font-size: 1.4rem;
-  margin-right: 4px;
-  position: relative;
-  top: -1px;
+  text-transform: uppercase;
+  font-weight: 400;
 }
 
 .category-list {
@@ -926,6 +944,25 @@ cách 2: (tự nghĩ) sử dụng last-child */
 }
 
 /* .category-item {} */
+.category-item {
+  position: relative;
+}
+
+/* đứa con đầu tiên sẽ gọi đến before và ko hiển thị before */
+.category-item:first-child::before {
+  display: none;
+}
+
+/* tạo viền cho menu category item */
+.category-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  /* căn 2 bên cho vừa với chữ */
+  left: 20px;
+  right: 20px;
+  border: 1px solid #e1e1e1;
+}
 
 .category-item--active .category-item__link {
   color: var(--primary-color-rgb);
@@ -936,17 +973,17 @@ cách 2: (tự nghĩ) sử dụng last-child */
   content: "";
   position: absolute;
   top: 50%;
-  left: 7px;
+  left: 11px;
   transform: translateY(calc(-50% - 1px));
   border: 4px solid;
   border-color: transparent transparent transparent var(--primary-color-rgb);
 }
 
 .category-item__link {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: var(--text-color);
   text-decoration: none;
-  padding: 4px 16px;
+  padding: 6px 20px;
   display: block;
   /* Transition để khai báo khi có chuyển động */
   transition: right linear 0.1s;
@@ -1040,8 +1077,7 @@ cách 2: (tự nghĩ) sử dụng last-child */
   background-color: var(--white-color);
   margin-top: 10px;
   position: relative;
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
+  border-radius: 2px;
   box-shadow: 0 1px 2px 0 rgba(161, 110, 110, 0.1);
   /* nếu form thay đổi thì thay đổi theo kiểu linear-đồng đều hoặc ease-in ....*/
   transition: transform ease-in 0.1s;
@@ -1061,7 +1097,9 @@ cách 2: (tự nghĩ) sử dụng last-child */
   padding-top: 100%;
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: center;
+  background-position: top center;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
 }
 
 /* CHÚ Ý cách làm dấu ... */
@@ -1220,6 +1258,7 @@ i.home-product-item__like-icon-fill {
   width: 40px;
   background-color: rgb(255, 216, 64, 0.94);
   text-align: center;
+  border-top-right-radius: 2px;
 }
 
 /* làm vạt cờ */
