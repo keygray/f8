@@ -143,4 +143,8 @@
         width: 110px;
     }
 
+    /* footer */
+    .footer__content {
+        padding: 0 16px;
+    }
 }
