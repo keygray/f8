@@ -1,0 +1,66 @@
+/* Mobile & Table */
+@media (max-width: 1023px) {
+    :root {
+        --header-height: 68px;
+        --navbar-height: 0px;
+    }
+
+    .hide-on-mobile-table {
+        display: none;
+    }
+
+    .header {
+        /* ở đây sử dụng fixed để fix cứng cho cái dưới */
+        position: fixed;
+        /* vì bị co lại nên cho width:100% hoặc tương đương left right 0 */
+        left: 0;
+        right: 0;
+        /* ở đây bị cách top nên cần đền top 0*/
+        top: 0;
+        z-index: 10;
+    }
+
+    .header__cart-list {
+        position: fixed;
+        top: var(--header-height);
+        right: 0;
+        width: 100%;
+        /* làm cho căn hai bên lề biết khoảng cách ở giữa khi ở màn table là 644px */
+        padding: 0 calc((100% - 644px) / 2);
+    }
+
+    .header__cart-list::after {
+        display: none;
+    }
+
+    .header__sort-bar {
+        display: flex;
+    }
+
+    /* vì app__container đứng sau thằng header mà bh header có thuộc tính fix nên header ở tầng layer cao hơn
+    => app__container  không vướng gì nữa nên sẽ nhảy lên => cần cho margin bằng 1 phần bằng header */
+    .app__container {
+        margin-top: calc(var(--header-height) + var(--header-sort-bar-height));
+    }
+
+}
+
+/* Table */
+@media (min-width: 740px) and (max-width: 1023px) {
+    .hide-on-table {
+        display: none;
+    }
+
+    .header__cart {
+        width: 80px;
+        text-align: center;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 739px) {
+    .hide-on-mobile {
+        display: none;
+    }
+}

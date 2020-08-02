@@ -622,7 +622,7 @@ cách 2: (tự nghĩ) sử dụng last-child */
   padding-left: 0;
   list-style: none;
   /* set chiều cao ở đây để giới hạn khu vực hiển thị , ở đây sử dụng "vh" là đơn vị % theo màn hình bạn đang sử dụng*/
-  height: 56vh;
+  max-height: 56vh;
   /* nếu mà sản phẩm vượt quá thì thay vì bth sử dụng overflow ẩn đi thì ta dùng auto nó sẽ thành scroll mà chỉ
   chọn overflow-Y chiều y thì mới scroll */
   overflow-y: auto;
@@ -908,6 +908,76 @@ cách 2: (tự nghĩ) sử dụng last-child */
   font-size: 1.4rem;
   color: var(--text-color);
   display: block;
+}
+
+/* header sort bar */
+.header__sort-bar {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  height: var(--header-sort-bar-height);
+  background-color: var(--white-color);
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  /* lúc ẩn để thuộc tính là gì lúc hiện cũng phải để thuộc tính ý */
+  /* display: flex; */
+  display: none;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.header__sort-item {
+  flex: 1;
+  position: relative;
+}
+
+.header__sort-link {
+  line-height: var(--header-sort-bar-height);
+  height: 100%;
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 1.4rem;
+  /* display block để chiếm hết li */
+  display: block;
+  text-align: center;
+  position: relative;
+}
+
+.header__sort-link--active .header__sort-link {
+  color: var(--primary-color-rgb);
+}
+
+.header__sort-link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 60%;
+  border-left: 1px solid #e5e5e5;
+  /* border hoặc width: 1px;
+  background-color: #e5e5e5; */
+}
+
+/* nếu có time cần xem xét lại phần này */
+.header__sort-item-price {
+  position: absolute;
+  top: 50%;
+  transform: translate(50%, -50%);
+  right: 35%;
+}
+
+.header__sort-item-icon {
+  display: block;
+  font-size: 1.4rem;
+  color: #555;
+}
+
+/* truy vấn đứa con đầu tiên -> truy vấn vào thẻ giả */
+.header__sort-item:first-child .header__sort-link::before {
+  border-left: none;
 }
 
 /* App__container */
