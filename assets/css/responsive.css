@@ -101,6 +101,18 @@
         display: none;
     }
 
+    @keyframes mobileSearchSideIn {
+        from {
+            opacity: 0;
+            top: calc(var(--header-height)/2);
+        }
+
+        to {
+            opacity: 1;
+            top: var(--header-height);
+        }
+    }
+
     .header__search-history {
         position: fixed;
         left: 0;
@@ -126,15 +138,9 @@
         min-width: 36px;
     }
 
-    @keyframes mobileSearchSideIn {
-        from {
-            opacity: 0;
-            top: calc(var(--header-height)/2);
-        }
-
-        to {
-            opacity: 1;
-            top: var(--header-height);
-        }
+    /* logo */
+    .header__logo-img {
+        width: 110px;
     }
+
 }

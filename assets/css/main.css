@@ -1139,6 +1139,8 @@ cách 2: (tự nghĩ) sử dụng last-child */
   display: block;
   border-radius: 3px;
   font-weight: 300;
+  /* padding cho chữ các kiểu thì nút vẫn đẹp */
+  padding: 0 6px;
   /* tạo đấu 3 chấm phần thừa dấu đi */
   line-height: var(--line-height);
   height: calc(var(--line-height)*2);
