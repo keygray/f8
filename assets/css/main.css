@@ -1,3 +1,8 @@
+.app {
+  overflow: hidden;
+  /* vì một số màn hình dù đã bằng kích thước nhưng vẫn hở khoảng trắng thừa ra nên ta phải ẩn đi */
+}
+
 header {
   height: var(--header-height);
   background-image: linear-gradient(0, #fe6433, #f53e2d);
@@ -500,6 +505,7 @@ cách 2: (tự nghĩ) sử dụng last-child */
 
 .header__mobile-search {
   padding: 0 12px;
+  display: none;
 }
 
 .header__mobile-search-icon {
@@ -548,6 +554,7 @@ cách 2: (tự nghĩ) sử dụng last-child */
   display: inline-block;
   padding: 0 12px;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .header__cart-icon {
@@ -962,6 +969,7 @@ cách 2: (tự nghĩ) sử dụng last-child */
 
 .header__sort-link--active .header__sort-link {
   color: var(--primary-color-rgb);
+  border-bottom: 2px solid var(--primary-color-rgb);
 }
 
 .header__sort-link::before {
@@ -1080,6 +1088,70 @@ cách 2: (tự nghĩ) sử dụng last-child */
 .category-item__link:hover {
   right: -4px;
   color: var(--primary-color-rgb);
+}
+
+/* Mobile Danh MỤc Category */
+.mobile-category {
+  display: none;
+}
+
+.mobile-category__list {
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* xóa thanh kéo kéo ngang dọc */
+.mobile-category__list::-webkit-scrollbar {
+  display: none;
+}
+
+.mobile-category__item {
+  flex-shrink: 0;
+  /* tránh bị co lại khi thẻ cha flex bị giới hạn chiều ngang */
+  margin-right: 10px;
+}
+
+/* lấy vị trí đứa con thứ đầu tiên mỗi lần 3 */
+.mobile-category__item:nth-of-type(3n+1) .mobile-category__link {
+  background-color: #87afd8;
+}
+
+/* đứa con thứ 2 */
+.mobile-category__item:nth-of-type(3n+2) .mobile-category__link {
+  background-color: #76c9bd;
+}
+
+.mobile-category__item:nth-of-type(3n+3) .mobile-category__link {
+  background-color: #88cf81;
+}
+
+
+.mobile-category__link {
+  --line-height: 2rem;
+  text-decoration: none;
+  color: var(--white-color);
+  font-size: 1.4rem;
+  text-align: center;
+  max-width: 110px;
+  display: block;
+  border-radius: 3px;
+  font-weight: 300;
+  /* tạo đấu 3 chấm phần thừa dấu đi */
+  line-height: var(--line-height);
+  height: calc(var(--line-height)*2);
+  overflow: hidden;
+  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  /* không cho người dùng select chữ trên nút */
+  user-select: none;
+  -webkit-user-select: none;
+  /* màu khi chạm vào một gì đó */
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Home sort + filter */
@@ -1379,6 +1451,7 @@ i.home-product-item__like-icon-fill {
 /* pagination */
 .home-product__pagination {
   margin: 48px 0 32px 0;
+  padding-left: 0;
 }
 
 /* footer */

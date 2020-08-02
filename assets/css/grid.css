@@ -290,6 +290,7 @@ sẽ ra được 1 giao diện 2-8-2 với 8 nằm giữa được hiển thị*
         margin-right: -12px;
     }
 
+    /* small gutter khi nào có thuộc tính này thì sẽ cho nhỏ phần gutter lại */
     .row.sm-gutter {
         margin-left: -5px;
         margin-right: -5px;
