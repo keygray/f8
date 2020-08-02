@@ -63,4 +63,8 @@
     .hide-on-mobile {
         display: none;
     }
+
+    .header__sort-item-price {
+        right: 30%;
+    }
 }
