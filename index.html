@@ -131,6 +131,9 @@
         </nav>
         <!-- Header with search -->
         <div class="header-with-search">
+          <label for="mobile-search-checkbox" class="header__mobile-search">
+            <i class="header__mobile-search-icon fas fa-search"></i>
+          </label>
           <div class="header__logo hide-on-table">
             <a href="/" class="header__logo-link">
               <svg class="header__logo-img" viewBox="0 0 192 65">
@@ -142,6 +145,8 @@
               </svg>
             </a>
           </div>
+          <!-- checkbox search -->
+          <input type="checkbox" hidden id="mobile-search-checkbox" class="header__mobile-search-checkbox">
           <div class="header__search">
             <div class="header__search-input-wrap">
               <input type="text" class="header__search-input" placeholder="Nhập để tìm kiếm sản phẩm" />
