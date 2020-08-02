@@ -1201,7 +1201,8 @@ cách 2: (tự nghĩ) sử dụng last-child */
   display: flex;
   /* Bằng nhau ở phần chân */
   align-items: baseline;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  /* có thể ở đây là wrap mới đúng */
 }
 
 .home-product-item__price-old {
