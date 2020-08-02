@@ -1,10 +1,5 @@
 /* Mobile & Table */
 @media (max-width: 1023px) {
-    :root {
-        --header-height: 68px;
-        --navbar-height: 0px;
-    }
-
     .hide-on-mobile-table {
         display: none;
     }
@@ -54,6 +49,11 @@
 
 /* Table */
 @media (min-width: 740px) and (max-width: 1023px) {
+    :root {
+        --header-height: 68px;
+        --navbar-height: 0px;
+    }
+
     .hide-on-table {
         display: none;
     }
@@ -67,6 +67,11 @@
 /* Mobile */
 
 @media (max-width: 739px) {
+    :root {
+        --header-height: 54px;
+        --navbar-height: 0px;
+    }
+
     .hide-on-mobile {
         display: none;
     }
@@ -146,5 +151,21 @@
     /* footer */
     .footer__content {
         padding: 0 16px;
+        text-align: center;
+    }
+
+    /* vì đã có thuộc tính flex và align item nên ở đây ko thể sử dụng text align mà phải dùng justify*/
+    .footer-item__link,
+    .footer__download {
+        justify-content: center;
+    }
+
+    .footer__download-apps {
+        flex: unset;
+    }
+
+    .footer__download-app-link {
+        display: block;
+        padding: 6px 8px;
     }
 }
